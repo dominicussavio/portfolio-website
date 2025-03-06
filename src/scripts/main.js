@@ -1,3 +1,25 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('popup-banner');
+    const closeButton = document.getElementById('close-popup');
+    
+    // Show popup after 2 seconds
+    setTimeout(() => {
+        popup.style.display = 'block';
+    }, 2000);
+
+    // Close popup when close button is clicked
+    closeButton.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+
+    // Close popup when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+});
+
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault();
     

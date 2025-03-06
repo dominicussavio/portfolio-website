@@ -446,3 +446,71 @@ input:focus, textarea:focus {
 /* Stagger project animations */
 .project-item:nth-child(2) { animation-delay: 0.2s; }
 .project-item:nth-child(3) { animation-delay: 0.4s; }
+
+.popup-banner {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    max-width: 400px;
+    width: 90%;
+    animation: slideDown 0.5s ease-out;
+}
+
+.popup-content {
+    position: relative;
+    text-align: center;
+}
+
+.popup-content h3 {
+    margin-top: 0;
+    color: var(--primary);
+}
+
+.close-popup {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background-color 0.3s ease;
+}
+
+.close-popup:hover {
+    background-color: #007d65;
+}
+
+@keyframes slideDown {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+    to {
+        top: 20px;
+        opacity: 1;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .popup-banner {
+        width: 85%;
+        top: 10px;
+    }
+}
