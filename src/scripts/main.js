@@ -25,3 +25,17 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
         });
     });
 });
+
+// Get the button
+let backToTopButton = document.getElementById("back-to-top");
+
+// Always show the button
+backToTopButton.style.display = "block";
+
+// When the user clicks on the button, scroll to the top of the document with smooth behavior
+backToTopButton.onclick = function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+};
