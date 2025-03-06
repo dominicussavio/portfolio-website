@@ -1,24 +1,53 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const popup = document.getElementById('popup-banner');
-    const closeButton = document.getElementById('close-popup');
-    
-    // Show popup after 2 seconds
-    setTimeout(() => {
-        popup.style.display = 'block';
-    }, 2000);
+// Immediately executing function to avoid global scope pollution
+(function() {
+    // Wait for DOM to be fully loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializePopup);
+    } else {
+        initializePopup();
+    }
 
-    // Close popup when close button is clicked
-    closeButton.addEventListener('click', () => {
-        popup.style.display = 'none';
-    });
-
-    // Close popup when clicking outside
-    window.addEventListener('click', (e) => {
-        if (e.target === popup) {
-            popup.style.display = 'none';
+    function initializePopup() {
+        // Debug log
+        console.log('Initializing popup...');
+        
+        const popup = document.getElementById('popup-banner');
+        const closeButton = document.getElementById('close-popup');
+        
+        // Verify elements exist
+        if (!popup || !closeButton) {
+            console.error('Required popup elements not found:', {
+                popup: !!popup,
+                closeButton: !!closeButton
+            });
+            return;
         }
-    });
-});
+
+        // Force display block after delay
+        setTimeout(() => {
+            popup.style.cssText = `
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            `;
+            console.log('Popup should now be visible');
+        }, 2000);
+
+        // Event listeners
+        closeButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            popup.style.display = 'none';
+            console.log('Popup closed via button');
+        });
+
+        window.addEventListener('click', function(e) {
+            if (e.target === popup) {
+                popup.style.display = 'none';
+                console.log('Popup closed via outside click');
+            }
+        });
+    }
+})();
 
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault();

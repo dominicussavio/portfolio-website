@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="src/styles/main.css">
 </head>
 <body>
-    <div id="popup-banner" class="popup-banner">
+    <div id="popup-banner" class="popup-banner" style="display: none;">
         <div class="popup-content">
-            <h3>Welcome to My Playground</h3>
-            <p>Under construction! In the meantime just click <a href="https://www.linkedin.com/in/dominicussavio" target="_blank">this</a></p>
-            <button id="close-popup" class="close-popup">×</button>
+            <h3>Welcome to My Playground!</h3>
+            <p>Under construction. In the meantime, please check my <a href="https://linkedin.com/in/dominicussavio" target="_blank">Linked In Profile</a></p>
+            <button id="close-popup" class="close-popup" aria-label="Close popup">×</button>
         </div>
     </div>
     
@@ -136,6 +136,13 @@
             <path d="M12 2l-10 10h6v10h8v-10h6z"/>
         </svg>
     </button>
+    
+    <script>
+        // Inline script for immediate execution
+        console.log('Page loaded, checking for popup elements...');
+        console.log('Popup element:', document.getElementById('popup-banner'));
+        console.log('Close button:', document.getElementById('close-popup'));
+    </script>
     
     <script src="src/scripts/main.js"></script>
 </body>
