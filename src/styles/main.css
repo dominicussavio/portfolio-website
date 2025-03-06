@@ -25,6 +25,8 @@ header {
     padding: 6rem 0;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
 }
 
 .header-content, .logo {
@@ -457,7 +459,7 @@ input:focus, textarea:focus {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
+    z-index: 9999;
     max-width: 400px;
     width: 90%;
     animation: slideDown 0.5s ease-out;
